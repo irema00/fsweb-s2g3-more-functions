@@ -16,9 +16,19 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  if (!path) {
+    return "";
+  } else return path.split(/[\\/]/).pop();
 }
+
+console.log("Görev 1 ", dosyaAdiniBul("C:\\git\\materials\\jsFun.png"));
+console.log(
+  "Görev 1 ",
+  dosyaAdiniBul(
+    "C:\\Users\\irem\\Desktop\\Personal\\wedding\\FOTOĞRAFLAR 3\\AY4I4831.JPG"
+  )
+);
 
 /*
   GÖREV 2
@@ -38,9 +48,24 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(sayilar) {
+  if (sayilar.length === 0 || sayilar === NaN) {
+    return null;
+  } else {
+    const toplam = sayilar.reduce((top, sayi) => top + sayi, 0);
+    const ortalama = toplam / sayilar.length;
+    const yuvarlakOrtalamaSayi = Math.floor(Math.round(ortalama));
+    return yuvarlakOrtalamaSayi;
+  }
 }
+
+console.log("Görev 1 ", ortalamaBul([]));
+console.log("Görev 2 ", ortalamaBul([4]));
+console.log("Görev 2 ", ortalamaBul([50, -26, 153, 7]));
+console.log(
+  "Görev 2 ",
+  ortalamaBul([109, 216, 288, 143, 71, 185, -278, 194, 5])
+);
 
 /*
   GÖREV 3
@@ -62,9 +87,33 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayilar, ortalamaBul) {
+  if (sayilar.length === 0 || sayilar === NaN) {
+    return null;
+  } else if (sayilar.length === 1) {
+    return sayilar;
+  } else {
+    const toplam = sayilar.reduce((top, sayi) => top + sayi, 0);
+    const ortalama = ortalamaBul(sayilar);
+    const ortalamadanBuyukler = sayilar.filter((sayi) => sayi > ortalama);
+
+    return ortalamadanBuyukler;
+  }
 }
+
+console.log("Görev 3 ", ortalamadanBuyukleriBul([], ortalamaBul));
+console.log("Görev 3 ", ortalamadanBuyukleriBul([4], ortalamaBul));
+console.log(
+  "Görev 3 ",
+  ortalamadanBuyukleriBul([50, -26, 153, 7], ortalamaBul)
+);
+console.log(
+  "Görev 3 ",
+  ortalamadanBuyukleriBul(
+    [109, 216, 288, 143, 71, 185, -278, 194, 5],
+    ortalamaBul
+  )
+);
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
