@@ -93,7 +93,6 @@ function ortalamadanBuyukleriBul(sayilar, ortalamaBul) {
   } else if (sayilar.length === 1) {
     return sayilar;
   } else {
-    const toplam = sayilar.reduce((top, sayi) => top + sayi, 0);
     const ortalama = ortalamaBul(sayilar);
     const ortalamadanBuyukler = sayilar.filter((sayi) => sayi > ortalama);
 
